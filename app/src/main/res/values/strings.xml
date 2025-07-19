@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DrugTrackerApp</string>
+    <string name="catalog">Catalog</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="i_already_have_an_account">I already have an account</string>
+    <string name="name">Name</string>
+    <string name="label">Label</string>
+    <string name="hint">Hint</string>
+    <string name="name_label">Name</string>
+    <string name="email_label">Email</string>
+    <string name="create_password_label">Create a password</string>
+    <string name="name_hint">Enter your name</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="error">Error</string>
+</resources>

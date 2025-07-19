@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="label"
+            type="String" />
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="text"
+            type="String" />
+
+        <variable
+            name="inputType"
+            type="int" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/common_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nhu_medium"
+            android:text="@{label}"
+            android:textColor="@color/text_primary_dark"
+            android:textSize="@dimen/_12sdp" />
+
+        <EditText
+            android:id="@+id/common_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:background="@null"
+            android:hint="@{hint}"
+            android:inputType="@{inputType}"
+            android:text="@={text}"
+            android:textColor="@color/text_hint_gray"
+            android:textColorHint="@color/text_hint_gray"
+            android:textSize="@dimen/_12ssp" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Custom color -->
+    <color name="very_light_periwinkle">#E0EAFF</color>
+    <color name="button_primary_blue">#007AFF</color>
+    <color name="loader_color">#008AFF</color>
+    <color name="link_text_blue">#0C79FE</color>
+    <color name="text_primary_dark">#393F4C</color>
+    <color name="text_hint_gray">#83899499</color>
+    <color name="edittext_background_gray">#E0E3E7</color>
+    <color name="red">#F40006</color>
+    <color name="green_color">#41DF9C</color>
+
+
+</resources>
