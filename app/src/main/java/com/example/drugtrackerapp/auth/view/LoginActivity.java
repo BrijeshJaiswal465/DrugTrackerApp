@@ -3,28 +3,23 @@ package com.example.drugtrackerapp.auth.view;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.drugtrackerapp.R;
-import com.example.drugtrackerapp.auth.viewModel.CreateAccountViewModel;
 import com.example.drugtrackerapp.auth.viewModel.LoginViewModel;
 import com.example.drugtrackerapp.base.BaseActivity;
 import com.example.drugtrackerapp.databinding.ActivityLoginBinding;
+import com.example.drugtrackerapp.ui.medications.view.MyMedicationActivity;
 import com.example.drugtrackerapp.utils.Utility;
 
 public class LoginActivity extends BaseActivity {
-    private ActivityLoginBinding binding;
-    private LoginViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        ActivityLoginBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         //Init ViewModel
-        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        LoginViewModel viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
         binding.setUserInfo(viewModel.userInfo);
 
@@ -48,7 +43,7 @@ public class LoginActivity extends BaseActivity {
         viewModel.getUserLogin().observe(this, firebaseUser -> {
             if (firebaseUser != null) {
                 Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                redirectionActivity(LoginActivity.class);
+                redirectionActivity(MyMedicationActivity.class);
             }
         });
     }

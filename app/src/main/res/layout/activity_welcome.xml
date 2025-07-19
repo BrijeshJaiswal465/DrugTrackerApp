@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/i_already_have_an_account"
-                android:textColor="@color/button_primary_blue"
+                android:textColor="@color/blue_color"
                 android:textSize="@dimen/_12ssp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

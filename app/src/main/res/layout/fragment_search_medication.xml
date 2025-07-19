@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.drugtrackerapp.ui.medications.viewModel.SearchMedicationViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        tools:context=".ui.medications.view.SearchMedicationBottomSheetFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/shape_bottom_sheet_fragment_top"
+            tools:context=".ui.medications.view.SearchMedicationBottomSheetFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <include layout="@layout/bottom_sheet_header" />
+
+                <LinearLayout
+                    android:id="@+id/rlSelectAllUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/gray_bg_edit_text_with_radius"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_5sdp">
+
+                    <ImageView
+                        android:id="@+id/imgSearchIcon"
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:contentDescription="@string/ic_search"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/light_grey_search_with_icon_text_color" />
+
+
+                    <com.example.drugtrackerapp.utils.CustomEditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@null"
+                        android:hint="@string/medication_name"
+                        android:imeOptions="actionDone"
+                        android:paddingVertical="@dimen/_2sdp"
+                        android:singleLine="true"
+                        android:text="@={viewModel.searchQuery}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/light_grey_search_with_icon_text_color"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+                <com.example.drugtrackerapp.utils.CustomTextViewSfRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/search_results"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMedication"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:visibility="visible"
+                    tools:listitem="@layout/row_medication" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                style="@style/AppButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/_25sdp"
+                android:text="@string/search" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

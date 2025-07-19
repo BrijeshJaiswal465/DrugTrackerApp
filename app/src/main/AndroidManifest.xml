@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".base.DrugTrackerApp"
         android:allowBackup="true"
@@ -14,6 +16,15 @@
         android:theme="@style/Theme.DrugTrackerApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.medications.view.MyMedicationActivity"
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
             android:name=".auth.view.LoginActivity"
             android:exported="false" />
         <activity
@@ -22,15 +33,7 @@
         <activity
             android:name=".auth.view.WelcomeActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.MainActivity"
-            android:exported="true">
         </activity>
     </application>
 

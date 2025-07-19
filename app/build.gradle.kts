@@ -54,4 +54,8 @@ dependencies {
     implementation(libs.google.firebase.auth)
     //alertToast
     implementation(libs.alerter)
+    //Circle image
+    implementation(libs.circleimageview)
+    implementation(libs.logging.interceptor)
+    implementation(libs.converter.gson)
 }

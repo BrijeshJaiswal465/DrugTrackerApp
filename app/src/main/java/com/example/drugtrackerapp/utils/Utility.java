@@ -75,4 +75,13 @@ public class Utility {
         }
         return true;
     }
+    /**
+     * Set dimen programmatically
+     *
+     * @param context Context
+     * @return int
+     */
+    public static int getDimensionPixelSize(Context context, int size) {
+        return context.getResources().getDimensionPixelSize(size);
+    }
 }

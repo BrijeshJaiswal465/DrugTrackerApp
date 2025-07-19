@@ -4,7 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <!-- Custom color -->
     <color name="very_light_periwinkle">#E0EAFF</color>
-    <color name="button_primary_blue">#007AFF</color>
+    <color name="blue_color">#007AFF</color>
     <color name="loader_color">#008AFF</color>
     <color name="link_text_blue">#0C79FE</color>
     <color name="text_primary_dark">#393F4C</color>
@@ -12,6 +12,10 @@
     <color name="edittext_background_gray">#E0E3E7</color>
     <color name="red">#F40006</color>
     <color name="green_color">#41DF9C</color>
-
-
+    <color name="main_bg_color">#F2F2F6</color>
+    <color name="border_line">#CDCDCD</color>
+    <color name="light_grey_search_with_icon_text_color">#8E8E92</color>
+    <color name="gray_color">#AEAEB2</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="del_color">#F44837</color>
 </resources>

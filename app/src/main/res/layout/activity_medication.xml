@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_bg_color"
+        android:orientation="vertical"
+        tools:context=".ui.medications.view.MyMedicationActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBaseline_toTopOf="parent">
+
+            <com.example.drugtrackerapp.utils.CustomTextViewSfBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/my_medications"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMedication"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:visibility="visible"
+                tools:listitem="@layout/row_medication" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSearchMedications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/ic_search_medications"
+                android:src="@drawable/ic_search_medications" />
+
+            <com.example.drugtrackerapp.utils.CustomTextViewSfBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:text="@string/search_medications"
+                android:textColor="@color/link_text_blue"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
