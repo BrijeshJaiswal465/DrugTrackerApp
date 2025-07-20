@@ -1,6 +1,8 @@
 package com.example.drugtrackerapp.ui.medications.model;
 
-public class DrugItem {
+import java.io.Serializable;
+
+public class DrugItem implements Serializable {
     private String name;
     private String synonym;
     private String rxcui;

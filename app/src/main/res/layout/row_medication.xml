@@ -19,7 +19,8 @@
                 android:id="@+id/ivMedication"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/ic_catalog" />
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_medicine" />
 
 
             <com.example.drugtrackerapp.utils.CustomTextViewSfRegular
@@ -30,6 +31,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_toStartOf="@+id/ic_arrow"
                 android:layout_toEndOf="@id/ivMedication"
+                android:maxLines="4"
                 android:text="@string/medication_name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp" />

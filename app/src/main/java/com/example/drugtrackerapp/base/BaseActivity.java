@@ -1,6 +1,8 @@
 package com.example.drugtrackerapp.base;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         progressDialogs = new ProgressDialog(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     /**
@@ -23,6 +26,15 @@ public class BaseActivity extends AppCompatActivity {
     public void redirectionActivity(Class<?> cls) {
         startActivity(new Intent(this, cls));
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    /***
+     * We are using this function clear all stack activity with intent
+     */
+    public void startActivityWithFinishStack(Activity currentActivity, Class<?> targetActivityClass) {
+        Intent intent = new Intent(currentActivity, targetActivityClass);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        currentActivity.startActivity(intent);
     }
 
     /**

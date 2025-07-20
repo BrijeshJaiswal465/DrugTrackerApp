@@ -30,4 +30,11 @@
     <string name="search_results">Search Results</string>
     <string name="details">Details</string>
     <string name="add_medication_to_list">Add Medication to List</string>
+    <string name="search_medication">Search Medication</string>
+    <string name="medicine_added_successfully">Medicine added successfully</string>
+    <string name="you_can_only_add_up_to_7_medicines">You can only add up to 7 medicines</string>
+    <string name="generic_name">Generic Name</string>
+    <string name="drug_already_added">Drug already added</string>
+    <string name="account_created_successfully">Account created successfully</string>
+    <string name="login_successfully">Login Successfully</string>
 </resources>

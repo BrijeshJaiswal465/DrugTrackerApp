@@ -1,4 +1,4 @@
-package com.example.drugtrackerapp.auth.model;
+package com.example.drugtrackerapp.ui.auth.model;
 
 public class UserInfo {
     private String name = "";

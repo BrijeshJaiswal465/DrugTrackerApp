@@ -5,22 +5,22 @@
 
     <data>
 
-        <import type="com.example.drugtrackerapp.auth.model.UserInfo" />
+        <import type="com.example.drugtrackerapp.ui.auth.model.UserInfo" />
 
         <variable
             name="viewModel"
-            type="com.example.drugtrackerapp.auth.viewModel.LoginViewModel" />
+            type="com.example.drugtrackerapp.ui.auth.viewModel.LoginViewModel" />
 
         <variable
             name="userInfo"
-            type="com.example.drugtrackerapp.auth.model.UserInfo" />
+            type="com.example.drugtrackerapp.ui.auth.model.UserInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".auth.view.LoginActivity">
+        tools:context=".ui.auth.view.LoginActivity">
         <!-- Scrollable content -->
         <ScrollView
             android:layout_width="match_parent"

@@ -1,12 +1,14 @@
-package com.example.drugtrackerapp.auth.view;
+package com.example.drugtrackerapp.ui.auth.view;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.Toast;
+
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.drugtrackerapp.R;
-import com.example.drugtrackerapp.auth.viewModel.LoginViewModel;
+import com.example.drugtrackerapp.ui.auth.viewModel.LoginViewModel;
 import com.example.drugtrackerapp.base.BaseActivity;
 import com.example.drugtrackerapp.databinding.ActivityLoginBinding;
 import com.example.drugtrackerapp.ui.medications.view.MyMedicationActivity;
@@ -18,6 +20,8 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityLoginBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        //Change status bar color
+        Utility.statusBarColor(this, getColor(R.color.white));
         //Init ViewModel
         LoginViewModel viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
@@ -42,8 +46,8 @@ public class LoginActivity extends BaseActivity {
         // Observe successful registration
         viewModel.getUserLogin().observe(this, firebaseUser -> {
             if (firebaseUser != null) {
-                Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                redirectionActivity(MyMedicationActivity.class);
+                Toast.makeText(this, getString(R.string.login_successfully), Toast.LENGTH_SHORT).show();
+                startActivityWithFinishStack(this, MyMedicationActivity.class);
             }
         });
     }

@@ -22,6 +22,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+/**
+ * An abstract class that extends ItemTouchHelper.SimpleCallback to provide swipe-to-reveal functionality
+ * for RecyclerView items. This helper creates buttons that appear when a user swipes an item left,
+ * allowing for actions like delete, edit, etc.
+ */
 public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
     @SuppressLint("StaticFieldLeak")
     public static Context mContext;
@@ -73,6 +78,14 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
     };
 
+    /**
+     * Constructor for SwipeHelper.
+     * 
+     * @param context The context used for gesture detection
+     * @param recyclerView The RecyclerView to attach this swipe helper to
+     * @param buttonSize The size of the buttons that appear when swiping
+     * @param textSize The text size for button labels
+     */
     public SwipeHelper(Context context, RecyclerView recyclerView, int buttonSize, int textSize) {
         super(0, ItemTouchHelper.LEFT);
         mContext = context;
@@ -97,11 +110,27 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
     }
 
 
+    /**
+     * Called when ItemTouchHelper wants to move the dragged item from its old position to
+     * the new position. This implementation returns false as we don't support drag and drop.
+     * 
+     * @param recyclerView The RecyclerView to which the ItemTouchHelper is attached to
+     * @param viewHolder The ViewHolder which is being dragged
+     * @param target The ViewHolder over which the currently active item is being dragged
+     * @return false since drag and drop is not supported
+     */
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
         return false;
     }
 
+    /**
+     * Called when a ViewHolder is swiped by the user.
+     * This method handles the swipe action, updates the swiped position, and prepares the buttons to be displayed.
+     * 
+     * @param viewHolder The ViewHolder that was swiped by the user
+     * @param direction The direction to which the ViewHolder was swiped
+     */
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         int pos = viewHolder.getAdapterPosition();
@@ -166,6 +195,10 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         super.onChildDraw(c, recyclerView, viewHolder, translationX, dY, actionState, isCurrentlyActive);
     }
 
+    /**
+     * Recovers swiped items by notifying the adapter to redraw them.
+     * This method is synchronized to prevent concurrent modification issues.
+     */
     private synchronized void recoverSwipedItem() {
         while (!recoverQueue.isEmpty()) {
             int pos = recoverQueue.poll();
@@ -175,6 +208,15 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
     }
 
+    /**
+     * Draws the underlay buttons on the canvas when an item is swiped.
+     * 
+     * @param c The canvas on which to draw the buttons
+     * @param itemView The view of the swiped item
+     * @param buffer The list of buttons to draw
+     * @param pos The position of the swiped item in the adapter
+     * @param dX The horizontal displacement caused by the swipe
+     */
     private void drawButtons(Canvas c, View itemView, List<UnderlayButton> buffer, int pos, float dX) {
         float right = itemView.getRight();
         float dButtonWidth = (-1) * dX / buffer.size();
@@ -196,13 +238,29 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
     }
 
+    /**
+     * Attaches this SwipeHelper to the RecyclerView.
+     * This method creates an ItemTouchHelper with this SwipeHelper as the callback
+     * and attaches it to the RecyclerView.
+     */
     public void attachSwipe() {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(this);
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
+    /**
+     * Abstract method that must be implemented by subclasses to create the buttons
+     * that will be displayed when an item is swiped.
+     * 
+     * @param viewHolder The ViewHolder for which to create buttons
+     * @param underlayButtons The list to which the created buttons should be added
+     */
     public abstract void instantiateUnderlayButton(RecyclerView.ViewHolder viewHolder, List<UnderlayButton> underlayButtons);
 
+    /**
+     * Inner class representing a button that appears when an item is swiped.
+     * Each button has text, an optional image, a background color, and a click listener.
+     */
     public static class UnderlayButton {
         private String text;
         private int imageResId;
@@ -211,6 +269,14 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         private RectF clickRegion;
         private UnderlayButtonClickListener clickListener;
 
+        /**
+         * Constructor for UnderlayButton.
+         * 
+         * @param text The text to display on the button
+         * @param imageResId The resource ID of an image to display on the button (can be 0 for no image)
+         * @param color The background color of the button
+         * @param clickListener The listener to call when the button is clicked
+         */
         public UnderlayButton(String text, int imageResId, int color, UnderlayButtonClickListener clickListener) {
             this.text = text;
             this.imageResId = imageResId;
@@ -218,6 +284,13 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
             this.clickListener = clickListener;
         }
 
+        /**
+         * Handles click events on the button.
+         * 
+         * @param x The x-coordinate of the click
+         * @param y The y-coordinate of the click
+         * @return true if the click was handled, false otherwise
+         */
         public boolean onClick(float x, float y) {
             if (clickRegion != null && clickRegion.contains(x, y)) {
                 clickListener.onClick(pos);
@@ -227,6 +300,13 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
             return false;
         }
 
+        /**
+         * Draws the button on the canvas.
+         * 
+         * @param c The canvas on which to draw
+         * @param rect The rectangle defining the button's bounds
+         * @param pos The position of the item in the adapter
+         */
         public void onDraw(Canvas c, RectF rect, int pos) {
             Paint p = new Paint();
 
@@ -252,7 +332,15 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
     }
 
+    /**
+     * Interface for handling clicks on underlay buttons.
+     */
     public interface UnderlayButtonClickListener {
+        /**
+         * Called when an underlay button is clicked.
+         * 
+         * @param pos The position of the item in the adapter
+         */
         void onClick(int pos);
     }
 }

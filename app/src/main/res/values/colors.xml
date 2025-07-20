@@ -18,4 +18,5 @@
     <color name="gray_color">#AEAEB2</color>
     <color name="transparent">#00ffffff</color>
     <color name="del_color">#F44837</color>
+    <color name="gen_color">#8E8E93</color>
 </resources>

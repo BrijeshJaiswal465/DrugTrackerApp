@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.concurrent.Executors;
 
 /**
- * Repository class that handles database operations for the user's saved medications.
+ * Repository class that handles database operations for the drug details bottom sheet.
  * Acts as an abstraction layer between the ViewModel and the Room database.
- * This class is responsible for retrieving and modifying medication data.
+ * This class is responsible for adding new medications to the database.
  */
-public class MyMedicationRepository {
+public class DrugDetailsBottomSheetRepository {
 
     /**
      * Data Access Object for medicine database operations.
@@ -24,27 +24,34 @@ public class MyMedicationRepository {
     /**
      * Constructor that initializes the MedicineDao from the application's database instance.
      */
-    public MyMedicationRepository() {
+    public DrugDetailsBottomSheetRepository() {
         dao = DrugTrackerApp.database.medicineDao();
+    }
+
+    /**
+     * Inserts a new medicine into the database.
+     * This operation is performed on a background thread to avoid blocking the UI thread.
+     * After successful insertion, the onSuccess callback is executed if provided.
+     * 
+     * @param entity The MedicineEntity to be inserted
+     * @param onSuccess Optional callback to be executed after successful insertion
+     */
+    public void insertMedicine(MedicineEntity entity, Runnable onSuccess) {
+        Executors.newSingleThreadExecutor().execute(() -> {
+            dao.insertMedicine(entity);
+            if (onSuccess != null) onSuccess.run();
+        });
     }
 
     /**
      * Retrieves all saved medicines from the database.
      * The result is wrapped in LiveData to allow the UI to observe changes.
+     * This method is used to check the current count of saved medicines.
      * 
      * @return LiveData containing a list of all saved MedicineEntity objects
      */
     public LiveData<List<MedicineEntity>> getAllMedicines() {
         return dao.getAllMedicines();
     }
-
-    /**
-     * Deletes a medicine from the database.
-     * This operation is performed on a background thread to avoid blocking the UI thread.
-     * 
-     * @param entity The MedicineEntity to be deleted
-     */
-    public void deleteMedicine(MedicineEntity entity) {
-        Executors.newSingleThreadExecutor().execute(() -> dao.deleteMedicine(entity));
-    }
 }
+

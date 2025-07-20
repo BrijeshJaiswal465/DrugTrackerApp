@@ -5,15 +5,15 @@
 
     <data>
 
-        <import type="com.example.drugtrackerapp.auth.model.UserInfo" />
+        <import type="com.example.drugtrackerapp.ui.auth.model.UserInfo" />
 
         <variable
             name="viewModel"
-            type="com.example.drugtrackerapp.auth.viewModel.CreateAccountViewModel" />
+            type="com.example.drugtrackerapp.ui.auth.viewModel.CreateAccountViewModel" />
 
         <variable
             name="userInfo"
-            type="com.example.drugtrackerapp.auth.model.UserInfo" />
+            type="com.example.drugtrackerapp.ui.auth.model.UserInfo" />
     </data>
 
 
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".auth.view.CreateAccountActivity">
+        tools:context=".ui.auth.view.CreateAccountActivity">
         <!-- Scrollable content -->
         <ScrollView
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:text="@string/create_new_account"
                     android:textColor="@color/link_text_blue"
-                    android:textSize="@dimen/_15ssp" />
+                    android:textSize="@dimen/_16ssp" />
 
 
                 <LinearLayout
@@ -56,16 +56,16 @@
                         android:id="@+id/nameField"
                         layout="@layout/view_common_edittext"
                         app:hint="@{@string/name_hint}"
-                        app:label="@{@string/name_label}"
                         app:inputType="@{android.text.InputType.TYPE_CLASS_TEXT}"
+                        app:label="@{@string/name_label}"
                         app:text="@={userInfo.name}" />
 
                     <include
                         android:id="@+id/emailField"
                         layout="@layout/view_common_edittext"
                         app:hint="@{@string/email_hint}"
-                        app:label="@{@string/email_label}"
                         app:inputType="@{android.text.InputType.TYPE_CLASS_TEXT}"
+                        app:label="@{@string/email_label}"
                         app:text="@={userInfo.email}" />
 
                     <include

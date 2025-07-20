@@ -1,6 +1,6 @@
-package com.example.drugtrackerapp.auth.repository;
+package com.example.drugtrackerapp.ui.auth.repository;
 
-import com.example.drugtrackerapp.auth.model.UserInfo;
+import com.example.drugtrackerapp.ui.auth.model.UserInfo;
 import com.example.drugtrackerapp.callback.AuthCallback;
 import com.example.drugtrackerapp.network.FirebaseAuthManager;
 import com.google.firebase.auth.FirebaseUser;

@@ -1,4 +1,4 @@
-package com.example.drugtrackerapp.auth.viewModel;
+package com.example.drugtrackerapp.ui.auth.viewModel;
 
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.drugtrackerapp.auth.model.UserInfo;
-import com.example.drugtrackerapp.auth.repository.CreateAccountRepository;
+import com.example.drugtrackerapp.ui.auth.model.UserInfo;
+import com.example.drugtrackerapp.ui.auth.repository.CreateAccountRepository;
 import com.example.drugtrackerapp.callback.AuthCallback;
 import com.google.firebase.auth.FirebaseUser;
 

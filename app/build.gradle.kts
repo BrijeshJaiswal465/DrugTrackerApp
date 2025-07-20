@@ -58,4 +58,6 @@ dependencies {
     implementation(libs.circleimageview)
     implementation(libs.logging.interceptor)
     implementation(libs.converter.gson)
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.runtime)
 }

@@ -25,10 +25,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_add_medicine"
+                android:layout_alignParentTop="true"
                 android:orientation="vertical"
                 android:padding="@dimen/_10sdp">
 
-                <include layout="@layout/bottom_sheet_header" />
+                <include
+                    android:id="@+id/includeBottomSheetHeader"
+                    layout="@layout/bottom_sheet_header" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/ivMedication"
@@ -44,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/medication_name"
+                    android:gravity="center"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
@@ -52,22 +56,51 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/medication_name"
-                    android:textColor="@color/black"
+                    android:text="@string/generic_name"
+                    android:textColor="@color/gen_color"
                     android:textSize="@dimen/_10ssp" />
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvMedication"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:visibility="visible"
-                    tools:listitem="@layout/row_medication" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/rounded_white_bg"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <com.example.drugtrackerapp.utils.CustomTextViewSfRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details"
+                        android:textColor="@color/gen_color"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <com.example.drugtrackerapp.utils.CustomTextViewSfRegular
+                                android:id="@+id/tv_details"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/details"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp" />
+                        </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
+
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_add_medicine"
                 style="@style/AppButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

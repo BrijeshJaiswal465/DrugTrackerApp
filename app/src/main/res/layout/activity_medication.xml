@@ -41,8 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/_25sdp"
             android:orientation="horizontal"
+            android:padding="@dimen/_25sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -57,8 +57,8 @@
             <com.example.drugtrackerapp.utils.CustomTextViewSfBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:text="@string/search_medications"
                 android:textColor="@color/link_text_blue"
                 android:textSize="@dimen/_14ssp" />

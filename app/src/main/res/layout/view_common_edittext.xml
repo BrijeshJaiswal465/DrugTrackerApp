@@ -34,15 +34,17 @@
             android:id="@+id/common_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_2sdp"
             android:fontFamily="@font/nhu_medium"
             android:text="@{label}"
             android:textColor="@color/text_primary_dark"
-            android:textSize="@dimen/_12sdp" />
+            android:textSize="@dimen/_10sdp" />
 
         <EditText
             android:id="@+id/common_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_2sdp"
             android:autofillHints="name"
             android:background="@null"
             android:hint="@{hint}"
